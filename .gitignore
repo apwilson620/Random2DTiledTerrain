@@ -58,3 +58,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+/Random2DTiledTerrain/Library
+/Random2DTiledTerrain/Logs
+/Random2DTiledTerrain/Temp
