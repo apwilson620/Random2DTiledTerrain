@@ -51,8 +51,8 @@ public class PerlinNoiseMap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float playerXPos = player.transform.localPosition.x;
-        float playerYPos = player.transform.localPosition.y;
+        int playerXPos = Mathf.RoundToInt(player.transform.localPosition.x);
+        int playerYPos = Mathf.RoundToInt(player.transform.localPosition.y);
         //Debug.Log(playerXPos + "player pos");
         //Debug.Log(currentChunkX + "chunk");
         if (hasStarted == false)
@@ -70,6 +70,8 @@ public class PerlinNoiseMap : MonoBehaviour
             currentChunkY = (int)(playerYPos / chunkBorder);
         }
         checkPos(x_offset, y_offset, currentChunkX, currentChunkY, playerXPos, playerYPos);
+        currentChunkX = (int)(playerXPos / chunkBorder);
+        currentChunkY = (int)(playerYPos / chunkBorder);
         //if ((playerXPos / 16) != currentChunkX || (playerYPos / 16) != currentChunkY)
         //{
         //Debug.Log("test2");
@@ -108,12 +110,18 @@ public class PerlinNoiseMap : MonoBehaviour
 
     void checkPos(int x_offset, int y_offset, int currentChunkX, int currentChunkY, float playerXPos, float playerYPos)
     {
-        if ((playerXPos / chunkBorder) != currentChunkX || (playerYPos / chunkBorder) != currentChunkY)
+        // todo: Check this logic, is this correct?
+        int xChunkLoc = (int)(playerXPos / chunkBorder);
+        int yChunkLoc = (int)(playerYPos / chunkBorder);
+        Debug.Log($"xChunkLoc: {xChunkLoc} yChunkLoc: {yChunkLoc}");
+        Debug.Log($"currentChunkX: {currentChunkX} currentChunkY: {currentChunkY}");
+        if (xChunkLoc != currentChunkX || yChunkLoc != currentChunkY)
         {
-            //Debug.Log(currentChunkX);
+            Debug.Log($"playerXPos: {playerXPos} playerYPos: {playerYPos} chunkBorder: {chunkBorder}");
+            //Debug.Log($"x: {currentChunkX} y: {currentChunkY}");
             //Debug.Log(currentChunkY);
-            playerXPos = player.transform.position.x;
-            playerYPos = player.transform.position.y;
+            playerXPos = Mathf.RoundToInt(player.transform.localPosition.x);
+            playerYPos = Mathf.RoundToInt(player.transform.localPosition.y);
             currentChunkX = (int)(playerXPos / chunkBorder);
             currentChunkY = (int)(playerYPos / chunkBorder);
             GenerateMap(x_offset, y_offset, currentChunkX, currentChunkY);
