@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8817647926801147820}
   - component: {fileID: 7592243479889992664}
-  - component: {fileID: 5341431256003122744}
   m_Layer: 0
   m_Name: Cave
   m_TagString: Untagged
@@ -85,16 +84,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5341431256003122744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2621179985727977109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8728067860d4b2744a26c9fe34b3e2ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tile: {fileID: 2621179985727977109}
